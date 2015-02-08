@@ -1,0 +1,7 @@
+{% set default = {
+    'pkg'                  : ['haveged',],
+    'service'              : ['haveged',],
+} %}
+{% set haveged = salt['grains.filter_by']({
+    'default': default,
+}, merge=salt['pillar.get']('haveged:lookup')) %}
